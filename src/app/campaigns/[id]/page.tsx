@@ -62,11 +62,11 @@ function StatCard({ label, value, sub, performance = 'neutral', icon, hint, larg
         <CardContent className={large ? 'p-6' : 'p-5'}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
-              <p className="text-[10px] font-semibold not-italic uppercase tracking-widest text-muted-foreground">{label}</p>
+              <p className="text-[10px] font-semibold not-italic uppercase tracking-widest text-foreground">{label}</p>
               {hint && (
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Info className="h-3 w-3 text-muted-foreground/30 cursor-help" />
+                    <Info className="h-3 w-3 text-muted-foreground/50 cursor-help" />
                   </TooltipTrigger>
                   <TooltipContent className="bg-popover text-popover-foreground border border-border">
                     <p className="text-xs max-w-[200px]">{hint}</p>
@@ -74,10 +74,10 @@ function StatCard({ label, value, sub, performance = 'neutral', icon, hint, larg
                 </Tooltip>
               )}
             </div>
-            {icon && <span className="text-muted-foreground/30 [&>svg]:h-4 [&>svg]:w-4">{icon}</span>}
+            {icon && <span className="text-muted-foreground/40 [&>svg]:h-4 [&>svg]:w-4">{icon}</span>}
           </div>
           <p className={`mt-3 font-bold not-italic tracking-tight ${large ? 'text-2xl' : 'text-xl'} ${performanceClass[performance]}`}>{value}</p>
-          {sub && <p className="mt-1 text-xs font-normal not-italic text-muted-foreground/50">{sub}</p>}
+          {sub && <p className="mt-1 text-xs font-normal not-italic text-muted-foreground">{sub}</p>}
         </CardContent>
       </Card>
     </motion.div>
@@ -233,7 +233,7 @@ export default function CampaignDetailPage({
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold not-italic tracking-tight">{campaign.name}</h1>
-              <p className="mt-1.5 text-sm font-normal not-italic text-muted-foreground/50">{campaign.client}</p>
+              <p className="mt-1.5 text-sm font-normal not-italic text-muted-foreground">{campaign.client}</p>
             </div>
             <div className="flex gap-2 pt-1">
               <PlatformBadge platform={campaign.platform} />
@@ -247,20 +247,20 @@ export default function CampaignDetailPage({
             <CardContent className="p-6">
               <div className="flex items-center justify-between gap-6">
                 <div>
-                  <p className="text-[10px] font-semibold not-italic uppercase tracking-widest text-muted-foreground">Presupuesto ejecutado</p>
+                  <p className="text-[10px] font-semibold not-italic uppercase tracking-widest text-foreground">Presupuesto ejecutado</p>
                   <p className="mt-3 text-2xl font-bold not-italic">{formatCurrency(campaign.spend)}</p>
-                  <p className="mt-0.5 text-sm font-normal not-italic text-muted-foreground/60">de {formatCurrency(campaign.budget)}</p>
+                  <p className="mt-0.5 text-sm font-normal not-italic text-muted-foreground">de {formatCurrency(campaign.budget)}</p>
                 </div>
                 <div className="text-right shrink-0">
                   <p className={`text-5xl font-bold not-italic tabular-nums leading-none ${barTextColor}`}>{spendPercent.toFixed(0)}%</p>
-                  <p className="mt-1 text-[10px] font-semibold not-italic uppercase tracking-widest text-muted-foreground">del total</p>
+                  <p className="mt-1 text-[10px] font-semibold not-italic uppercase tracking-widest text-foreground">del total</p>
                 </div>
               </div>
               <div className="mt-5 space-y-2">
                 <div className="h-2.5 w-full rounded-full bg-muted">
                   <div className={`h-2.5 rounded-full transition-all ${barColor}`} style={{ width: `${spendPercent}%` }} />
                 </div>
-                <div className="flex justify-between text-xs text-muted-foreground/50">
+                <div className="flex justify-between text-xs text-muted-foreground">
                   <span>{formatDisplayDate(campaign.startDate)}</span>
                   <span>{formatDisplayDate(campaign.endDate)}</span>
                 </div>
@@ -270,7 +270,7 @@ export default function CampaignDetailPage({
         </motion.div>
 
         <div className="space-y-5">
-          <p className="text-xs font-semibold not-italic uppercase tracking-widest text-muted-foreground">KPIs principales</p>
+          <p className="text-xs font-semibold not-italic uppercase tracking-widest text-foreground">KPIs principales</p>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <StatCard
               large
@@ -311,7 +311,7 @@ export default function CampaignDetailPage({
         </div>
 
         <div className="space-y-5">
-          <p className="text-xs font-semibold not-italic uppercase tracking-widest text-muted-foreground">Volumen</p>
+          <p className="text-xs font-semibold not-italic uppercase tracking-widest text-foreground">Volumen</p>
           <div className="grid grid-cols-3 gap-4">
             <StatCard label="Impresiones" value={formatNumber(campaign.impressions)} icon={<Eye />} />
             <StatCard label="Clicks" value={formatNumber(campaign.clicks)} icon={<MousePointer />} />
