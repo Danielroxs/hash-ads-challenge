@@ -116,7 +116,7 @@ export default function CampaignDetailPage({
 
   if (isLoading) {
     return (
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 2xl:max-w-[1600px] min-[1920px]:max-w-[1800px] min-[2560px]:max-w-[2400px]">
         <div className="mb-6">
           <Skeleton className="h-4 w-32" />
         </div>
@@ -146,24 +146,13 @@ export default function CampaignDetailPage({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 2xl:gap-4 min-[1920px]:grid-cols-7">
+            {Array.from({ length: 7 }).map((_, i) => (
               <Card key={i}>
                 <CardContent className="p-4 space-y-2">
                   <Skeleton className="h-3 w-16" />
                   <Skeleton className="h-6 w-20" />
                   <Skeleton className="h-3 w-28" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <Card key={i}>
-                <CardContent className="p-4 space-y-2">
-                  <Skeleton className="h-3 w-20" />
-                  <Skeleton className="h-6 w-16" />
                 </CardContent>
               </Card>
             ))}
@@ -184,7 +173,7 @@ export default function CampaignDetailPage({
 
   return (
     <TooltipProvider>
-    <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 2xl:max-w-[1600px] min-[1920px]:max-w-[1800px] min-[2560px]:max-w-[2400px]">
       <motion.div
         variants={fadeIn}
         initial="hidden"
@@ -239,7 +228,7 @@ export default function CampaignDetailPage({
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 2xl:gap-4 min-[1920px]:grid-cols-7">
           <StatCard
             label="ROAS"
             value={`${campaign.roas.toFixed(1)}x`}
@@ -271,9 +260,6 @@ export default function CampaignDetailPage({
             icon={<Target />}
             hint="Número de usuarios que completaron la acción deseada: compra, registro o descarga."
           />
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           <StatCard label="Impresiones" value={formatNumber(campaign.impressions)} icon={<Eye />} />
           <StatCard label="Clicks" value={formatNumber(campaign.clicks)} icon={<MousePointer />} />
           <StatCard label="Gasto total" value={formatCurrency(campaign.spend)} icon={<Wallet />} />

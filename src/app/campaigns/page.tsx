@@ -13,6 +13,17 @@ import EmptyState from '@/components/ui/EmptyState'
 import ErrorState from '@/components/ui/ErrorState'
 import { staggerContainer, fadeIn } from '@/lib/animations'
 
+function getPaginationPages(currentPage: number, totalPages: number): number[] {
+  const windowSize = 10
+  let start = Math.max(1, currentPage - Math.floor(windowSize / 2))
+  let end = start + windowSize - 1
+  if (end > totalPages) {
+    end = totalPages
+    start = Math.max(1, end - windowSize + 1)
+  }
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+}
+
 export default function CampaignsPage() {
   const {
     campaigns,
@@ -46,7 +57,7 @@ export default function CampaignsPage() {
   }, [])
 
   return (
-    <main className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col px-4 py-8 sm:px-6 lg:px-8 2xl:max-w-[1600px] min-[1920px]:max-w-[1800px] min-[2560px]:max-w-[2400px]">
       <div className="flex flex-1 flex-col">
       <motion.div className="mb-6" variants={fadeIn} initial="hidden" animate="visible">
         <h1 className="text-2xl font-semibold tracking-tight">Campañas</h1>
@@ -108,7 +119,7 @@ export default function CampaignsPage() {
       </div>
 
       {!isLoading && totalPages > 1 && (
-        <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
+        <div className="mt-6 flex items-center justify-center gap-1 border-t border-border pt-4">
           <button
             onClick={() => setPage(currentPage - 1)}
             disabled={currentPage === 1}
@@ -118,10 +129,19 @@ export default function CampaignsPage() {
             Anterior
           </button>
 
-          <span className="text-sm text-muted-foreground">
-            Página <span className="font-medium text-foreground">{currentPage}</span> de{' '}
-            <span className="font-medium text-foreground">{totalPages}</span>
-          </span>
+          {getPaginationPages(currentPage, totalPages).map((page) => (
+            <button
+              key={page}
+              onClick={() => setPage(page)}
+              className={`min-w-[36px] rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                page === currentPage
+                  ? 'bg-foreground text-background'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+              }`}
+            >
+              {page}
+            </button>
+          ))}
 
           <button
             onClick={() => setPage(currentPage + 1)}

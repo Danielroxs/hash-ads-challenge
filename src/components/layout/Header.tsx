@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="border-b border-border bg-background sticky top-0 z-40">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 2xl:max-w-[1600px] min-[1920px]:max-w-[1800px] min-[2560px]:max-w-[2400px]">
         <div className="flex h-16 items-center justify-between">
           <motion.div
             className="flex items-center gap-3"
