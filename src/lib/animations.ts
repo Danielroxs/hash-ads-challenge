@@ -56,3 +56,13 @@ export const modalContent: Variants = {
     transition: { duration: 0.2, ease: 'easeIn' },
   },
 }
+
+export const wordmarkTop: Variants = {
+  initial: { y: 0, opacity: 1 },
+  hover: { y: '-100%', opacity: 0, transition: { duration: 0.3, ease: 'easeInOut' } },
+}
+
+export const wordmarkBottom: Variants = {
+  initial: { y: '100%', opacity: 0 },
+  hover: { y: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } },
+}
