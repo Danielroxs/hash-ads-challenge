@@ -14,17 +14,17 @@ interface CampaignTableProps {
 export default function CampaignTable({ campaigns }: CampaignTableProps) {
   return (
     <div className="rounded-lg border border-border overflow-hidden">
-      <table className="w-full text-sm">
+      <table className="w-full table-fixed text-sm">
         <thead>
           <tr className="border-b border-border bg-muted/50">
-            <th className="px-4 py-3 text-left font-medium text-muted-foreground">Campaña</th>
-            <th className="px-4 py-3 text-left font-medium text-muted-foreground">Plataforma</th>
-            <th className="px-4 py-3 text-left font-medium text-muted-foreground">Estado</th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground">Gasto / Presupuesto</th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground">ROAS</th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground">Impresiones</th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground">Clicks</th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground">CTR</th>
+            <th className="w-[26%] px-4 py-3 text-left font-medium text-muted-foreground">Campaña</th>
+            <th className="w-[13%] px-4 py-3 text-left font-medium text-muted-foreground">Plataforma</th>
+            <th className="w-[10%] px-4 py-3 text-left font-medium text-muted-foreground">Estado</th>
+            <th className="w-[18%] px-4 py-3 text-right font-medium text-muted-foreground">Gasto / Presupuesto</th>
+            <th className="w-[8%] px-4 py-3 text-right font-medium text-muted-foreground">ROAS</th>
+            <th className="w-[11%] px-4 py-3 text-right font-medium text-muted-foreground">Impresiones</th>
+            <th className="w-[8%] px-4 py-3 text-right font-medium text-muted-foreground">Clicks</th>
+            <th className="w-[6%] px-4 py-3 text-right font-medium text-muted-foreground">CTR</th>
           </tr>
         </thead>
         <motion.tbody

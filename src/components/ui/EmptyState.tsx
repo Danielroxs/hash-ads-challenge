@@ -2,7 +2,7 @@ import { SearchX } from 'lucide-react'
 
 export default function EmptyState() {
   return (
-    <div className="flex flex-col items-center justify-center py-40 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center text-center">
       <SearchX className="h-10 w-10 text-muted-foreground/50" />
       <p className="mt-4 text-sm font-medium">Sin resultados</p>
       <p className="mt-1 text-xs text-muted-foreground">

@@ -46,7 +46,8 @@ export default function CampaignsPage() {
   }, [])
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col px-4 py-8 sm:px-6 lg:px-8">
+      <div className="flex flex-1 flex-col">
       <motion.div className="mb-6" variants={fadeIn} initial="hidden" animate="visible">
         <h1 className="text-2xl font-semibold tracking-tight">Campañas</h1>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -66,7 +67,7 @@ export default function CampaignsPage() {
         />
       </div>
 
-      <div className="min-h-[600px]">
+      <div className="flex flex-1 flex-col">
         {isLoading ? (
           <CampaignsSkeleton />
         ) : hasError ? (
@@ -75,6 +76,7 @@ export default function CampaignsPage() {
           <AnimatePresence mode="wait">
             <motion.div
               key={JSON.stringify(filters)}
+              className="flex flex-1 flex-col"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -131,6 +133,7 @@ export default function CampaignsPage() {
           </button>
         </div>
       )}
+      </div>
     </main>
   )
 }
